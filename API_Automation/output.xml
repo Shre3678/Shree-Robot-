@@ -1,111 +1,124 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.2 (Python 3.13.5 on win32)" generated="2025-08-05T18:30:08.554112" rpa="false" schemaversion="5">
+<robot generator="Robot 7.3.2 (Python 3.13.5 on win32)" generated="2025-08-05T18:38:32.506992" rpa="false" schemaversion="5">
 <suite id="s1" name="Post req with payloadfromjsonFile" source="C:\Users\Lenovo\PycharmProjects\Automation-office\API_Automation\Post_req_with_payloadfromjsonFile.robot">
 <test id="s1-t1" name="Post request, payload using by extranal user defined keyword" line="15">
 <kw name="Create Session" owner="RequestsLibrary">
-<msg time="2025-08-05T18:30:09.573020" level="INFO">Creating Session using : alias=post_session, url=https://thetestingworldapi.com/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<msg time="2025-08-05T18:38:33.525255" level="INFO">Creating Session using : alias=post_session, url=https://thetestingworldapi.com/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
 <arg>post_session</arg>
 <arg>${Base_url}</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<status status="PASS" start="2025-08-05T18:30:09.572775" elapsed="0.000478"/>
+<status status="PASS" start="2025-08-05T18:38:33.525018" elapsed="0.000475"/>
 </kw>
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-08-05T18:30:09.574010" level="INFO">${header} = {'Content-Type': 'application/json'}</msg>
+<msg time="2025-08-05T18:38:33.526234" level="INFO">${header} = {'Content-Type': 'application/json'}</msg>
 <var>${header}</var>
 <arg>Content-Type=application/json</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-08-05T18:30:09.573684" elapsed="0.000363"/>
+<status status="PASS" start="2025-08-05T18:38:33.525924" elapsed="0.000347"/>
 </kw>
 <kw name="Read Request Content" owner="Payload">
-<msg time="2025-08-05T18:30:09.574901" level="INFO">${load} = {'first_name': 'om', 'middle_name': 'Namoo', 'last_name': 'Satynarayana', 'date_of_birth': 'sample string 5'}</msg>
+<msg time="2025-08-05T18:38:33.527157" level="INFO">${load} = {'first_name': 'om', 'middle_name': 'Namoo', 'last_name': 'Satynarayana', 'date_of_birth': 'sample string 5'}</msg>
 <var>${load}</var>
-<status status="PASS" start="2025-08-05T18:30:09.574403" elapsed="0.000536"/>
+<status status="PASS" start="2025-08-05T18:38:33.526648" elapsed="0.000547"/>
 </kw>
 <kw name="Pause Execution" owner="Dialogs">
 <arg>confirm the excution</arg>
 <doc>Pauses execution until user clicks ``Ok`` button.</doc>
-<status status="PASS" start="2025-08-05T18:30:09.575299" elapsed="3.503438"/>
+<status status="PASS" start="2025-08-05T18:38:33.527565" elapsed="0.944215"/>
 </kw>
 <kw name="Get Value From User" owner="Dialogs">
-<msg time="2025-08-05T18:30:20.633149" level="INFO">${Excutor_name} = Srinivas Bandari</msg>
+<msg time="2025-08-05T18:38:38.318799" level="INFO">${Excutor_name} = Srinivas shetty</msg>
 <var>${Excutor_name}</var>
 <arg>Enter your name for excution</arg>
 <doc>Pauses execution and asks user to input a value.</doc>
-<status status="PASS" start="2025-08-05T18:30:13.083752" elapsed="7.549505"/>
+<status status="PASS" start="2025-08-05T18:38:34.488488" elapsed="3.830400"/>
 </kw>
 <kw name="Post Request" owner="RequestsLibrary">
-<msg time="2025-08-05T18:30:20.633821" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
-<msg time="2025-08-05T18:30:21.039502" level="INFO">POST Request : url=https://thetestingworldapi.com/api/studentsDetails 
+<msg time="2025-08-05T18:38:38.319513" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<msg time="2025-08-05T18:38:39.777487" level="INFO">POST Request : url=https://thetestingworldapi.com/api/studentsDetails 
  path_url=/api/studentsDetails 
  headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '109'} 
  body={"first_name": "om", "middle_name": "Namoo", "last_name": "Satynarayana", "date_of_birth": "sample string 5"} 
  </msg>
-<msg time="2025-08-05T18:30:21.039662" level="INFO">POST Response : url=https://thetestingworldapi.com/api/studentsDetails 
+<msg time="2025-08-05T18:38:39.777868" level="INFO">POST Response : url=https://thetestingworldapi.com/api/studentsDetails 
  status=201, reason=Created 
- headers={'Cache-Control': 'no-cache', 'Pragma': 'no-cache', 'Content-Type': 'application/json; charset=utf-8', 'Expires': '-1', 'Location': 'https://thetestingworldapi.com/api/studentsDetails/10662832', 'Server': 'Microsoft-IIS/10.0', 'X-AspNet-Version': '4.0.30319', 'X-Powered-By': 'ASP.NET', 'X-Powered-By-Plesk': 'PleskWin', 'Date': 'Tue, 05 Aug 2025 13:00:20 GMT', 'Content-Length': '116'} 
- body={"id":10662832,"first_name":"om","middle_name":"Namoo","last_name":"Satynarayana","date_of_birth":"sample string 5"} 
+ headers={'Cache-Control': 'no-cache', 'Pragma': 'no-cache', 'Content-Type': 'application/json; charset=utf-8', 'Expires': '-1', 'Location': 'https://thetestingworldapi.com/api/studentsDetails/10662835', 'Server': 'Microsoft-IIS/10.0', 'X-AspNet-Version': '4.0.30319', 'X-Powered-By': 'ASP.NET', 'X-Powered-By-Plesk': 'PleskWin', 'Date': 'Tue, 05 Aug 2025 13:08:39 GMT', 'Content-Length': '116'} 
+ body={"id":10662835,"first_name":"om","middle_name":"Namoo","last_name":"Satynarayana","date_of_birth":"sample string 5"} 
  </msg>
-<msg time="2025-08-05T18:30:21.039758" level="INFO">C:\Users\Lenovo\PycharmProjects\Automation-office\.venv\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'thetestingworldapi.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+<msg time="2025-08-05T18:38:39.778142" level="INFO">C:\Users\Lenovo\PycharmProjects\Automation-office\.venv\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'thetestingworldapi.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
   warnings.warn(</msg>
-<msg time="2025-08-05T18:30:21.040209" level="INFO">${Response} = &lt;Response [201]&gt;</msg>
+<msg time="2025-08-05T18:38:39.779588" level="INFO">${Response} = &lt;Response [201]&gt;</msg>
 <var>${Response}</var>
 <arg>post_session</arg>
 <arg>api/studentsDetails</arg>
 <arg>data=${load}</arg>
 <arg>headers=${header}</arg>
 <doc>*DEPRECATED* Please use `POST On Session` instead.</doc>
-<status status="PASS" start="2025-08-05T18:30:20.633738" elapsed="0.406550"/>
+<status status="PASS" start="2025-08-05T18:38:38.319438" elapsed="1.460430"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>${Response.status_code}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-08-05T18:30:21.040665" elapsed="0.001278"/>
+<status status="PASS" start="2025-08-05T18:38:39.781263" elapsed="0.004314"/>
+</kw>
+<kw name="Convert To String" owner="BuiltIn">
+<msg time="2025-08-05T18:38:39.789969" level="INFO">${Statuscode_validation} = 201</msg>
+<var>${Statuscode_validation}</var>
+<arg>${Response.status_code}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<status status="PASS" start="2025-08-05T18:38:39.786572" elapsed="0.003629"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${Statuscode_validation}</arg>
+<arg>201</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-08-05T18:38:39.791675" elapsed="0.001819"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>${Response.content}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-08-05T18:30:21.042408" elapsed="0.001277"/>
+<status status="PASS" start="2025-08-05T18:38:39.794488" elapsed="0.003881"/>
 </kw>
 <kw name="To Json" owner="RequestsLibrary">
-<msg time="2025-08-05T18:30:21.044076" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
-<msg time="2025-08-05T18:30:21.045155" level="INFO">To JSON using : content={"id":10662832,"first_name":"om","middle_name":"Namoo","last_name":"Satynarayana","date_of_birth":"sample string 5"} </msg>
-<msg time="2025-08-05T18:30:21.045208" level="INFO">To JSON using : pretty_print=False </msg>
-<msg time="2025-08-05T18:30:21.045331" level="INFO">${Json_res} = {'id': 10662832, 'first_name': 'om', 'middle_name': 'Namoo', 'last_name': 'Satynarayana', 'date_of_birth': 'sample string 5'}</msg>
+<msg time="2025-08-05T18:38:39.799490" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg time="2025-08-05T18:38:39.803465" level="INFO">To JSON using : content={"id":10662835,"first_name":"om","middle_name":"Namoo","last_name":"Satynarayana","date_of_birth":"sample string 5"} </msg>
+<msg time="2025-08-05T18:38:39.803795" level="INFO">To JSON using : pretty_print=False </msg>
+<msg time="2025-08-05T18:38:39.804373" level="INFO">${Json_res} = {'id': 10662835, 'first_name': 'om', 'middle_name': 'Namoo', 'last_name': 'Satynarayana', 'date_of_birth': 'sample string 5'}</msg>
 <var>${Json_res}</var>
 <arg>${Response.content}</arg>
 <doc>*DEPRECATED* Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</doc>
-<status status="PASS" start="2025-08-05T18:30:21.044019" elapsed="0.001344"/>
+<status status="PASS" start="2025-08-05T18:38:39.799349" elapsed="0.005170"/>
 </kw>
 <kw name="Get Value From Json" owner="JSONLibrary">
-<msg time="2025-08-05T18:30:21.094256" level="INFO">@{last_name_list} = [ Satynarayana ]</msg>
+<msg time="2025-08-05T18:38:39.862153" level="INFO">@{last_name_list} = [ Satynarayana ]</msg>
 <var>@{last_name_list}</var>
 <arg>${Json_res}</arg>
 <arg>last_name</arg>
 <doc>Get Value From JSON using JSONPath</doc>
-<status status="PASS" start="2025-08-05T18:30:21.045692" elapsed="0.048621"/>
+<status status="PASS" start="2025-08-05T18:38:39.805647" elapsed="0.056551"/>
 </kw>
 <kw name="Get From List" owner="Collections">
-<msg time="2025-08-05T18:30:21.095115" level="INFO">${lastname_Validation} = Satynarayana</msg>
+<msg time="2025-08-05T18:38:39.862832" level="INFO">${lastname_Validation} = Satynarayana</msg>
 <var>${lastname_Validation}</var>
 <arg>${last_name_list}</arg>
 <arg>0</arg>
 <doc>Returns the value specified with an ``index`` from ``list``.</doc>
-<status status="PASS" start="2025-08-05T18:30:21.094787" elapsed="0.000369"/>
+<status status="PASS" start="2025-08-05T18:38:39.862601" elapsed="0.000262"/>
 </kw>
 <kw name="Should Be Equal" owner="BuiltIn">
 <arg>${lastname_Validation}</arg>
 <arg>Satynarayana</arg>
 <doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2025-08-05T18:30:21.095510" elapsed="0.000238"/>
+<status status="PASS" start="2025-08-05T18:38:39.863228" elapsed="0.000198"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>${Excutor_name}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-08-05T18:30:21.096090" elapsed="0.000388"/>
+<status status="PASS" start="2025-08-05T18:38:39.863830" elapsed="0.000369"/>
 </kw>
-<status status="PASS" start="2025-08-05T18:30:09.571460" elapsed="11.525316"/>
+<status status="PASS" start="2025-08-05T18:38:33.523729" elapsed="6.341147"/>
 </test>
-<status status="PASS" start="2025-08-05T18:30:08.557413" elapsed="12.540600"/>
+<status status="PASS" start="2025-08-05T18:38:32.510093" elapsed="7.356102"/>
 </suite>
 <statistics>
 <total>
@@ -118,8 +131,8 @@
 </suite>
 </statistics>
 <errors>
-<msg time="2025-08-05T18:30:08.547002" level="WARN">Error in file 'C:\Users\Lenovo\PycharmProjects\Automation-office\API_Automation\Post_req_with_payloadfromjsonFile.robot' on line 35: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
-<msg time="2025-08-05T18:30:20.633821" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
-<msg time="2025-08-05T18:30:21.044076" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg time="2025-08-05T18:38:32.499436" level="WARN">Error in file 'C:\Users\Lenovo\PycharmProjects\Automation-office\API_Automation\Post_req_with_payloadfromjsonFile.robot' on line 37: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2025-08-05T18:38:38.319513" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<msg time="2025-08-05T18:38:39.799490" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
 </errors>
 </robot>

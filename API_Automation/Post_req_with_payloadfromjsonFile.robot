@@ -20,6 +20,8 @@ Post request, payload using by extranal user defined keyword
      ${Excutor_name}    get value from user    Enter your name for excution
      ${Response}    post request    post_session   api/studentsDetails    data=${load}    headers=${header}
      log to console    ${Response.status_code}
+     ${Statuscode_validation}   convert to string    ${Response.status_code}
+     log to console    ${Statuscode_validation}       201
      log to console    ${Response.content}
      ${Json_res}   to json    ${Response.content}
      @{last_name_list}         get value from json    ${Json_res}    last_name
