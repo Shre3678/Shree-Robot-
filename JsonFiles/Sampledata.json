@@ -1,0 +1,20 @@
+{
+  "Registration":
+  {
+    "Name": "Srinivas",
+    "Emp_id": 567,
+    "Dob": "02-07",
+    "city": ["Hyderabad", "Telangana"],
+    "address":
+    {
+      "Streetname": "Hanuman Temple area",
+      "door": 171,
+      "city": "Karimnagar",
+      "phone":
+      {
+        "Mobile_name": 9876543210,
+        "Landline": "0878-2270188"
+      }
+    }
+  }
+}

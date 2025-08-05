@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.13.5 on win32)" generated="2025-07-30T14:47:36.464350" rpa="false" schemaversion="5">
+<suite id="s1" name="01 Login" source="C:\Users\Lenovo\PycharmProjects\Automation-office\DDT\TC__01_login.robot">
+<test id="s1-t1" name="Verify the login with mutliple data set" line="11">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-07-30T14:47:37.248230" level="INFO">Opening browser 'chrome' to base url 'https://www.facebook.com/'.</msg>
+<arg>${url}</arg>
+<arg>${browser_name}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-07-30T14:47:37.247848" elapsed="5.444185"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-07-30T14:47:42.692723" elapsed="0.047149"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>5 seconds</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2025-07-30T14:47:42.740863" elapsed="0.002245"/>
+</kw>
+<kw name="Read the number of rows" owner="User_Keywords">
+<kw name="Fetch Countof Rows" owner="Read_Data">
+<msg time="2025-07-30T14:47:42.745163" level="INFO">${max_rows} = 4</msg>
+<var>${max_rows}</var>
+<arg>${Sheetname}</arg>
+<status status="PASS" start="2025-07-30T14:47:42.744716" elapsed="0.000532"/>
+</kw>
+<return>
+<value>${max_rows}</value>
+<status status="PASS" start="2025-07-30T14:47:42.745400" elapsed="0.000217"/>
+</return>
+<msg time="2025-07-30T14:47:42.746119" level="INFO">${rows} = 4</msg>
+<var>${rows}</var>
+<arg>DemoData</arg>
+<status status="PASS" start="2025-07-30T14:47:42.743965" elapsed="0.002249"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${rows}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-07-30T14:47:42.746706" elapsed="0.002006"/>
+</kw>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Fetch Cell Data" owner="Read_Data">
+<msg time="2025-07-30T14:47:42.751214" level="INFO">${username} = Srini</msg>
+<var>${username}</var>
+<arg>DemoData</arg>
+<arg>${i}</arg>
+<arg>1</arg>
+<status status="PASS" start="2025-07-30T14:47:42.750308" elapsed="0.001068"/>
+</kw>
+<kw name="Fetch Cell Data" owner="Read_Data">
+<msg time="2025-07-30T14:47:42.752823" level="INFO">${password} = 98767</msg>
+<var>${password}</var>
+<arg>DemoData</arg>
+<arg>${i}</arg>
+<arg>2</arg>
+<status status="PASS" start="2025-07-30T14:47:42.751834" elapsed="0.001145"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-07-30T14:47:42.753886" level="INFO">Typing text 'Srini' into text field 'email'.</msg>
+<arg>email</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-30T14:47:42.753361" elapsed="0.134252"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2025-07-30T14:47:42.888614" level="INFO">Typing password into text field 'pass'.</msg>
+<msg time="2025-07-30T14:47:42.943654" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>pass</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-30T14:47:42.888096" elapsed="0.137182"/>
+</kw>
+<var name="${i}">2</var>
+<status status="PASS" start="2025-07-30T14:47:42.749789" elapsed="0.275672"/>
+</iter>
+<iter>
+<kw name="Fetch Cell Data" owner="Read_Data">
+<msg time="2025-07-30T14:47:43.027897" level="INFO">${username} = SRIN_03</msg>
+<var>${username}</var>
+<arg>DemoData</arg>
+<arg>${i}</arg>
+<arg>1</arg>
+<status status="PASS" start="2025-07-30T14:47:43.027058" elapsed="0.000937"/>
+</kw>
+<kw name="Fetch Cell Data" owner="Read_Data">
+<msg time="2025-07-30T14:47:43.029338" level="INFO">${password} = Sre$321</msg>
+<var>${password}</var>
+<arg>DemoData</arg>
+<arg>${i}</arg>
+<arg>2</arg>
+<status status="PASS" start="2025-07-30T14:47:43.028335" elapsed="0.001245"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-07-30T14:47:43.031400" level="INFO">Typing text 'SRIN_03' into text field 'email'.</msg>
+<arg>email</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-30T14:47:43.030514" elapsed="0.187234"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2025-07-30T14:47:43.218469" level="INFO">Typing password into text field 'pass'.</msg>
+<msg time="2025-07-30T14:47:43.287164" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>pass</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-30T14:47:43.218072" elapsed="0.172641"/>
+</kw>
+<var name="${i}">3</var>
+<status status="PASS" start="2025-07-30T14:47:43.026130" elapsed="0.364693"/>
+</iter>
+<iter>
+<kw name="Fetch Cell Data" owner="Read_Data">
+<msg time="2025-07-30T14:47:43.391479" level="INFO">${username} = 134</msg>
+<var>${username}</var>
+<arg>DemoData</arg>
+<arg>${i}</arg>
+<arg>1</arg>
+<status status="PASS" start="2025-07-30T14:47:43.391185" elapsed="0.000537"/>
+</kw>
+<kw name="Fetch Cell Data" owner="Read_Data">
+<msg time="2025-07-30T14:47:43.392493" level="INFO">${password} = 497</msg>
+<var>${password}</var>
+<arg>DemoData</arg>
+<arg>${i}</arg>
+<arg>2</arg>
+<status status="PASS" start="2025-07-30T14:47:43.392076" elapsed="0.000484"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-07-30T14:47:43.393200" level="INFO">Typing text '134' into text field 'email'.</msg>
+<arg>email</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-30T14:47:43.392834" elapsed="0.676983"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2025-07-30T14:47:44.071257" level="INFO">Typing password into text field 'pass'.</msg>
+<msg time="2025-07-30T14:47:44.153944" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>pass</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-30T14:47:44.070161" elapsed="0.184524"/>
+</kw>
+<var name="${i}">4</var>
+<status status="PASS" start="2025-07-30T14:47:43.391037" elapsed="0.863821"/>
+</iter>
+<var>${i}</var>
+<value>2</value>
+<value>${rows}+1</value>
+<status status="PASS" start="2025-07-30T14:47:42.749065" elapsed="1.505898"/>
+</for>
+<status status="PASS" start="2025-07-30T14:47:37.246183" elapsed="7.009176"/>
+</test>
+<status status="PASS" start="2025-07-30T14:47:36.466864" elapsed="7.789593"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="01 Login" id="s1" pass="1" fail="0" skip="0">01 Login</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-07-30T14:47:36.934007" level="WARN">Error in file 'C:\Users\Lenovo\PycharmProjects\Automation-office\DDT\User_Keywords.robot' on line 11: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2025-07-30T14:47:36.934512" level="WARN">Error in file 'C:\Users\Lenovo\PycharmProjects\Automation-office\DDT\User_Keywords.robot' on line 15: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+</errors>
+</robot>

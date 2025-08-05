@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.13.5 on win32)" generated="2025-07-28T22:30:08.910804" rpa="false" schemaversion="5">
+<suite id="s1" name="Loginpage" source="C:\Users\Lenovo\PycharmProjects\Automation-office\BDD_Formate\Loginpage.robot">
+<test id="s1-t1" name="Verify the elements with &quot;Name&quot; locator and clear the entered text" line="10">
+<kw name="Given">
+<msg time="2025-07-28T22:30:17.516118" level="FAIL">No keyword with name 'Given' found.</msg>
+<arg>open browser</arg>
+<arg>${URL}</arg>
+<arg>${Browser_name}</arg>
+<status status="FAIL" start="2025-07-28T22:30:17.515951" elapsed="0.000311">No keyword with name 'Given' found.</status>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="NOT RUN" start="2025-07-28T22:30:17.516778" elapsed="0.000091"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>2 seconds</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="NOT RUN" start="2025-07-28T22:30:17.517252" elapsed="0.000068"/>
+</kw>
+<kw name="When input text" owner="SeleniumLibrary">
+<arg>name=email</arg>
+<arg>Srinivas</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-07-28T22:30:17.517658" elapsed="0.000061"/>
+</kw>
+<kw name="Then clear element text" owner="SeleniumLibrary">
+<arg>name=email</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-07-28T22:30:17.518044" elapsed="0.000059"/>
+</kw>
+<status status="FAIL" start="2025-07-28T22:30:17.510189" elapsed="0.008292">No keyword with name 'Given' found.</status>
+</test>
+<status status="FAIL" start="2025-07-28T22:30:08.917815" elapsed="8.623359"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Loginpage" id="s1" pass="0" fail="1" skip="0">Loginpage</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.13.5 on win32)" generated="2025-07-17T21:12:59.745472" rpa="false" schemaversion="5">
+<suite id="s1" name="Automation-office" source="C:\Users\Lenovo\PycharmProjects\Automation-office">
+<suite id="s1-s1" name="TestCases" source="C:\Users\Lenovo\PycharmProjects\Automation-office\TestCases">
+<suite id="s1-s1-s1" name="MouseOperations" source="C:\Users\Lenovo\PycharmProjects\Automation-office\TestCases\MouseOperations.robot">
+<test id="s1-s1-s1-t1" name="Example of keyboard operation using (press key) keyword with ASCII values" line="30">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-07-17T21:13:00.382312" level="INFO">Opening browser 'Chrome' to base url 'https://www.flipkart.com/'.</msg>
+<arg>https://www.flipkart.com/</arg>
+<arg>${Browser_name}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-07-17T21:13:00.381979" elapsed="7.172540"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-07-17T21:13:07.556837" elapsed="0.072042"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>2 seconds</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2025-07-17T21:13:07.629260" elapsed="0.001263"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-07-17T21:13:07.631253" level="INFO">Typing text 'Srimad Bhagavad Gita' into text field 'css=input.Pke_EE[name='q']'.</msg>
+<arg>css=input.Pke_EE[name='q']</arg>
+<arg>Srimad Bhagavad Gita</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-17T21:13:07.630827" elapsed="0.765067"/>
+</kw>
+<kw name="Press Key" owner="SeleniumLibrary">
+<arg>css=input.Pke_EE[name='q']</arg>
+<arg>\\13</arg>
+<doc>Simulates user pressing key on element identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-17T21:13:08.396273" elapsed="4.739831"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-07-17T21:13:15.138165" level="INFO">Slept 2 seconds.</msg>
+<arg>2 seconds</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-07-17T21:13:13.136968" elapsed="2.001629"/>
+</kw>
+<status status="PASS" start="2025-07-17T21:13:00.380535" elapsed="14.759489"/>
+</test>
+<status status="PASS" start="2025-07-17T21:12:59.810117" elapsed="15.333706"/>
+</suite>
+<status status="PASS" start="2025-07-17T21:12:59.807355" elapsed="15.341612"/>
+</suite>
+<status status="PASS" start="2025-07-17T21:12:59.747925" elapsed="15.405017"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Automation-office" id="s1" pass="1" fail="0" skip="0">Automation-office</stat>
+<stat name="TestCases" id="s1-s1" pass="1" fail="0" skip="0">Automation-office.TestCases</stat>
+<stat name="MouseOperations" id="s1-s1-s1" pass="1" fail="0" skip="0">Automation-office.TestCases.MouseOperations</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

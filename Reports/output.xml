@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.13.5 on win32)" generated="2025-07-21T19:32:56.898605" rpa="false" schemaversion="5">
+<suite id="s1" name="SetupANDTearDown" source="C:\Users\Lenovo\PycharmProjects\Automation-office\TestCases\SetupANDTearDown.robot">
+<kw name="Log" owner="BuiltIn" type="SETUP">
+<msg time="2025-07-21T19:32:57.478721" level="INFO">hello Automati</msg>
+<arg>hello Automati</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-07-21T19:32:57.478475" elapsed="0.000339"/>
+</kw>
+<test id="s1-t1" name="Verify user log in with incorrect username and valid password" line="14">
+<kw name="Launching the browser" owner="Browser_Launch" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-07-21T19:32:57.481206" level="INFO">Opening browser 'chrome' to base url 'https://www.facebook.com/'.</msg>
+<msg time="2025-07-21T19:37:57.905702" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<msg time="2025-07-21T19:37:57.906829" level="FAIL">NoSuchDriverException: Message: Unable to obtain driver for chrome; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+</msg>
+<arg>${Url}</arg>
+<arg>${Browser Name}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="FAIL" start="2025-07-21T19:32:57.480715" elapsed="301.301052">NoSuchDriverException: Message: Unable to obtain driver for chrome; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+</status>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="NOT RUN" start="2025-07-21T19:37:58.782384" elapsed="0.000103"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-07-21T19:37:58.782733" elapsed="0.000074"/>
+</kw>
+<arg>${URL}</arg>
+<arg>chrome</arg>
+<status status="FAIL" start="2025-07-21T19:32:57.480108" elapsed="301.303021">NoSuchDriverException: Message: Unable to obtain driver for chrome; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+</status>
+</kw>
+<kw name="Close my Browser" owner="Browser_Launch" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-07-21T19:37:58.785095" elapsed="0.000322"/>
+</kw>
+<status status="PASS" start="2025-07-21T19:37:58.784348" elapsed="0.001284"/>
+</kw>
+<tag>login_page cases</tag>
+<tag>smoke</tag>
+<status status="FAIL" start="2025-07-21T19:32:57.479010" elapsed="301.307103">Setup failed:
+NoSuchDriverException: Message: Unable to obtain driver for chrome; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location
+</status>
+</test>
+<test id="s1-t2" name="Verify user log in with correct username and Invalid password" line="20">
+<kw name="Launching the browser" owner="Browser_Launch" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<arg>${Url}</arg>
+<arg>${Browser Name}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="FAIL" start="2025-07-21T19:37:58.791773" elapsed="0.000789">Execution terminated by signal</status>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="NOT RUN" start="2025-07-21T19:37:58.793087" elapsed="0.000137"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-07-21T19:37:58.793626" elapsed="0.000102"/>
+</kw>
+<arg>${URL}</arg>
+<arg>chrome</arg>
+<status status="FAIL" start="2025-07-21T19:37:58.790621" elapsed="0.003494">Execution terminated by signal</status>
+</kw>
+<kw name="Close my Browser" owner="Browser_Launch" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-07-21T19:37:58.796244" elapsed="0.000455"/>
+</kw>
+<status status="PASS" start="2025-07-21T19:37:58.795201" elapsed="0.001806"/>
+</kw>
+<tag>Level-1 Cases</tag>
+<tag>login_page cases</tag>
+<status status="FAIL" start="2025-07-21T19:37:58.788882" elapsed="0.008583">Setup failed:
+Execution terminated by signal</status>
+</test>
+<test id="s1-t3" name="Verify user log in with correct username and valid password" line="25">
+<tag>login_page cases</tag>
+<tag>regression</tag>
+<tag>robot:exit</tag>
+<tag>smoke</tag>
+<status status="FAIL" start="2025-07-21T19:37:58.799511" elapsed="0.001697">Test execution stopped due to a fatal error.</status>
+</test>
+<kw name="Log" owner="BuiltIn" type="TEARDOWN">
+<msg time="2025-07-21T19:37:58.803959" level="INFO">Thanks for doing</msg>
+<arg>Thanks for doing</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-07-21T19:37:58.803606" elapsed="0.000905"/>
+</kw>
+<status status="FAIL" start="2025-07-21T19:32:56.900877" elapsed="301.903938"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="3" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat info="combined" combined="NOT robot:exit" pass="0" fail="2" skip="0">NOT robot:exit</stat>
+<stat pass="0" fail="1" skip="0">Level-1 Cases</stat>
+<stat pass="0" fail="3" skip="0">login_page cases</stat>
+<stat pass="0" fail="1" skip="0">regression</stat>
+<stat pass="0" fail="2" skip="0">smoke</stat>
+</tag>
+<suite>
+<stat name="SetupANDTearDown" id="s1" pass="0" fail="3" skip="0">SetupANDTearDown</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

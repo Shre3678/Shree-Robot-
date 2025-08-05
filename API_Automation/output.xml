@@ -1,0 +1,742 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.13.5 on win32)" generated="2025-08-04T20:55:33.985364" rpa="false" schemaversion="5">
+<suite id="s1" name="API Automation" source="C:\Users\Lenovo\PycharmProjects\Automation-office\API_Automation">
+<suite id="s1-s1" name="API Validation" source="C:\Users\Lenovo\PycharmProjects\Automation-office\API_Automation\API_Validation.robot">
+<test id="s1-s1-t1" name="Validating the status code and firstname" line="14">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-08-04T20:55:37.050047" level="INFO">Creating Session using : alias=SN_SC_FN, url=https://thetestingworldapi.com/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>SN_SC_FN</arg>
+<arg>${Base_url}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-08-04T20:55:37.048833" elapsed="0.003034"/>
+</kw>
+<kw name="Get Request" owner="RequestsLibrary">
+<msg time="2025-08-04T20:55:37.053615" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg time="2025-08-04T20:55:37.828322" level="INFO">GET Request : url=https://thetestingworldapi.com/api/studentsDetails/10662702 
+ path_url=/api/studentsDetails/10662702 
+ headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-08-04T20:55:37.828681" level="INFO">GET Response : url=https://thetestingworldapi.com/api/studentsDetails/10662702 
+ status=200, reason=OK 
+ headers={'Cache-Control': 'no-cache', 'Pragma': 'no-cache', 'Content-Type': 'application/json; charset=utf-8', 'Expires': '-1', 'Server': 'Microsoft-IIS/10.0', 'X-AspNet-Version': '4.0.30319', 'X-Powered-By': 'ASP.NET', 'X-Powered-By-Plesk': 'PleskWin', 'Date': 'Mon, 04 Aug 2025 15:25:36 GMT', 'Content-Length': '167'} 
+ body={"status":"true","data":{"id":10662702,"first_name":"sample string 2","middle_name":"sample string 3","last_name":"sample string 4","date_of_birth":"sample string 5"}} 
+ </msg>
+<msg time="2025-08-04T20:55:37.828904" level="INFO">C:\Users\Lenovo\PycharmProjects\Automation-office\.venv\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'thetestingworldapi.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-08-04T20:55:37.829958" level="INFO">${Response} = &lt;Response [200]&gt;</msg>
+<var>${Response}</var>
+<arg>SN_SC_FN</arg>
+<arg>api/studentsDetails/${Student_id}</arg>
+<doc>*DEPRECATED* Please use `GET On Session` instead.</doc>
+<status status="PASS" start="2025-08-04T20:55:37.053362" elapsed="0.776755"/>
+</kw>
+<kw name="Convert To String" owner="BuiltIn">
+<msg time="2025-08-04T20:55:37.832889" level="INFO">${Str_fromate_conv_value} = 200</msg>
+<var>${Str_fromate_conv_value}</var>
+<arg>${Response.status_code}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<status status="PASS" start="2025-08-04T20:55:37.831066" elapsed="0.001935"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${Str_fromate_conv_value}</arg>
+<arg>200</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-08-04T20:55:37.833857" elapsed="0.000640"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${Str_fromate_conv_value}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-08-04T20:55:37.835308" elapsed="0.000984"/>
+</kw>
+<kw name="To Json" owner="RequestsLibrary">
+<msg time="2025-08-04T20:55:37.837383" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg time="2025-08-04T20:55:37.840138" level="INFO">To JSON using : content={"status":"true","data":{"id":10662702,"first_name":"sample string 2","middle_name":"sample string 3","last_name":"sample string 4","date_of_birth":"sample string 5"}} </msg>
+<msg time="2025-08-04T20:55:37.840272" level="INFO">To JSON using : pretty_print=False </msg>
+<msg time="2025-08-04T20:55:37.840578" level="INFO">${Json_res} = {'status': 'true', 'data': {'id': 10662702, 'first_name': 'sample string 2', 'middle_name': 'sample string 3', 'last_name': 'sample string 4', 'date_of_birth': 'sample string 5'}}</msg>
+<var>${Json_res}</var>
+<arg>${Response.content}</arg>
+<doc>*DEPRECATED* Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</doc>
+<status status="PASS" start="2025-08-04T20:55:37.837263" elapsed="0.003418"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${Json_res}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-08-04T20:55:37.841527" elapsed="0.002152"/>
+</kw>
+<kw name="Get Value From Json" owner="JSONLibrary">
+<msg time="2025-08-04T20:55:38.012875" level="INFO">@{First_name_list} = [ sample string 2 ]</msg>
+<var>@{First_name_list}</var>
+<arg>${Json_res}</arg>
+<arg>data.first_name</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<status status="PASS" start="2025-08-04T20:55:37.844787" elapsed="0.168335"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<msg time="2025-08-04T20:55:38.015497" level="INFO">${First_name} = sample string 2</msg>
+<var>${First_name}</var>
+<arg>${First_name_list}</arg>
+<arg>0</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2025-08-04T20:55:38.014252" elapsed="0.001381"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${First_name}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-08-04T20:55:38.016456" elapsed="0.000906"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${First_name}</arg>
+<arg>sample string 2</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-08-04T20:55:38.018152" elapsed="0.000735"/>
+</kw>
+<kw name="Get Value From Json" owner="JSONLibrary">
+<msg time="2025-08-04T20:55:38.142683" level="INFO">@{Date_of_birth} = [ sample string 5 ]</msg>
+<var>@{Date_of_birth}</var>
+<arg>${Json_res}</arg>
+<arg>data.date_of_birth</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<status status="PASS" start="2025-08-04T20:55:38.019637" elapsed="0.123196"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<msg time="2025-08-04T20:55:38.144532" level="INFO">${DOB} = sample string 5</msg>
+<var>${DOB}</var>
+<arg>${Date_of_birth}</arg>
+<arg>0</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2025-08-04T20:55:38.143623" elapsed="0.001036"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${DOB}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-08-04T20:55:38.145326" elapsed="0.000771"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${DOB}</arg>
+<arg>sample string 5</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-08-04T20:55:38.147154" elapsed="0.000660"/>
+</kw>
+<status status="PASS" start="2025-08-04T20:55:37.042775" elapsed="1.105802"/>
+</test>
+<status status="PASS" start="2025-08-04T20:55:34.142668" elapsed="4.008127"/>
+</suite>
+<suite id="s1-s2" name="deleterequest userdefinedKey" source="C:\Users\Lenovo\PycharmProjects\Automation-office\API_Automation\deleterequest_userdefinedKey.robot">
+<test id="s1-s2-t1" name="Post after delete API TestCase" line="10">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-08-04T20:55:38.171029" level="INFO">Creating Session using : alias=post_session, url=https://thetestingworldapi.com/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>post_session</arg>
+<arg>${Base_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-08-04T20:55:38.170142" elapsed="0.001526"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-04T20:55:38.173880" level="INFO">${Data} = {'first_name': 'Sai', 'middle_name': 'Krishna', 'last_name': 'd', 'date_of_birth': '03-09-2000'}</msg>
+<var>${Data}</var>
+<arg>first_name=Sai</arg>
+<arg>middle_name=Krishna</arg>
+<arg>last_name=d</arg>
+<arg>date_of_birth=03-09-2000</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-04T20:55:38.172859" elapsed="0.001137"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-04T20:55:38.176409" level="INFO">${Header} = {'Content-Type': 'application/json'}</msg>
+<var>${Header}</var>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-04T20:55:38.174825" elapsed="0.001808"/>
+</kw>
+<kw name="Post Request" owner="RequestsLibrary">
+<msg time="2025-08-04T20:55:38.177552" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<msg time="2025-08-04T20:55:38.832289" level="INFO">POST Request : url=https://thetestingworldapi.com/api/studentsDetails 
+ path_url=/api/studentsDetails 
+ headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '96'} 
+ body={"first_name": "Sai", "middle_name": "Krishna", "last_name": "d", "date_of_birth": "03-09-2000"} 
+ </msg>
+<msg time="2025-08-04T20:55:38.832575" level="INFO">POST Response : url=https://thetestingworldapi.com/api/studentsDetails 
+ status=201, reason=Created 
+ headers={'Cache-Control': 'no-cache', 'Pragma': 'no-cache', 'Content-Type': 'application/json; charset=utf-8', 'Expires': '-1', 'Location': 'https://thetestingworldapi.com/api/studentsDetails/10662779', 'Server': 'Microsoft-IIS/10.0', 'X-AspNet-Version': '4.0.30319', 'X-Powered-By': 'ASP.NET', 'X-Powered-By-Plesk': 'PleskWin', 'Date': 'Mon, 04 Aug 2025 15:25:37 GMT', 'Content-Length': '103'} 
+ body={"id":10662779,"first_name":"Sai","middle_name":"Krishna","last_name":"d","date_of_birth":"03-09-2000"} 
+ </msg>
+<msg time="2025-08-04T20:55:38.832814" level="INFO">C:\Users\Lenovo\PycharmProjects\Automation-office\.venv\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'thetestingworldapi.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-08-04T20:55:38.833889" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<var>${response}</var>
+<arg>post_session</arg>
+<arg>api/studentsDetails</arg>
+<arg>data=${Data}</arg>
+<arg>headers=${Header}</arg>
+<doc>*DEPRECATED* Please use `POST On Session` instead.</doc>
+<status status="PASS" start="2025-08-04T20:55:38.177439" elapsed="0.656617"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-08-04T20:55:38.835063" elapsed="0.002053"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-08-04T20:55:38.838039" elapsed="0.002406"/>
+</kw>
+<kw name="To Json" owner="RequestsLibrary">
+<msg time="2025-08-04T20:55:38.841482" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg time="2025-08-04T20:55:38.845323" level="INFO">To JSON using : content={"id":10662779,"first_name":"Sai","middle_name":"Krishna","last_name":"d","date_of_birth":"03-09-2000"} </msg>
+<msg time="2025-08-04T20:55:38.845550" level="INFO">To JSON using : pretty_print=False </msg>
+<msg time="2025-08-04T20:55:38.846016" level="INFO">${Json_response} = {'id': 10662779, 'first_name': 'Sai', 'middle_name': 'Krishna', 'last_name': 'd', 'date_of_birth': '03-09-2000'}</msg>
+<var>${Json_response}</var>
+<arg>${response.content}</arg>
+<doc>*DEPRECATED* Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</doc>
+<status status="PASS" start="2025-08-04T20:55:38.841372" elapsed="0.004798"/>
+</kw>
+<kw name="Get Value From Json" owner="JSONLibrary">
+<msg time="2025-08-04T20:55:39.047670" level="INFO">@{list_res} = [ 10662779 ]</msg>
+<var>@{list_res}</var>
+<arg>${Json_response}</arg>
+<arg>id</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<status status="PASS" start="2025-08-04T20:55:38.847172" elapsed="0.200629"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<msg time="2025-08-04T20:55:39.049413" level="INFO">${id} = 10662779</msg>
+<var>${id}</var>
+<arg>${list_res}</arg>
+<arg>0</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2025-08-04T20:55:39.048709" elapsed="0.000819"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${id}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-08-04T20:55:39.050443" elapsed="0.000961"/>
+</kw>
+<kw name="Deletinng resource">
+<kw name="Delete Request" owner="RequestsLibrary">
+<msg time="2025-08-04T20:55:39.053969" level="WARN">Keyword 'RequestsLibrary.Delete Request' is deprecated. Please use `DELETE On Session` instead.</msg>
+<msg time="2025-08-04T20:55:39.104890" level="INFO">DELETE Request : url=https://thetestingworldapi.com/api/studentsDetails/10662779 
+ path_url=/api/studentsDetails/10662779 
+ headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg time="2025-08-04T20:55:39.105199" level="INFO">DELETE Response : url=https://thetestingworldapi.com/api/studentsDetails/10662779 
+ status=200, reason=OK 
+ headers={'Cache-Control': 'no-cache', 'Pragma': 'no-cache', 'Content-Type': 'application/json; charset=utf-8', 'Expires': '-1', 'Server': 'Microsoft-IIS/10.0', 'X-AspNet-Version': '4.0.30319', 'X-Powered-By': 'ASP.NET', 'X-Powered-By-Plesk': 'PleskWin', 'Date': 'Mon, 04 Aug 2025 15:25:38 GMT', 'Content-Length': '46'} 
+ body={"status":"true","msg":"Delete  data success"} 
+ </msg>
+<msg time="2025-08-04T20:55:39.105439" level="INFO">C:\Users\Lenovo\PycharmProjects\Automation-office\.venv\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'thetestingworldapi.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-08-04T20:55:39.106568" level="INFO">${res} = &lt;Response [200]&gt;</msg>
+<var>${res}</var>
+<arg>post_session</arg>
+<arg>api/studentsDetails/${Stud_id}</arg>
+<doc>*DEPRECATED* Please use `DELETE On Session` instead.</doc>
+<status status="PASS" start="2025-08-04T20:55:39.053865" elapsed="0.052901"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${res.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-08-04T20:55:39.107557" elapsed="0.002975"/>
+</kw>
+<kw name="Convert To String" owner="BuiltIn">
+<msg time="2025-08-04T20:55:39.114780" level="INFO">${res.conv} = 200</msg>
+<var>${res.conv}</var>
+<arg>${res.status_code}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<status status="PASS" start="2025-08-04T20:55:39.111267" elapsed="0.003776"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${res.conv}</arg>
+<arg>200</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-08-04T20:55:39.115635" elapsed="0.003210"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${res.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-08-04T20:55:39.119404" elapsed="0.002816"/>
+</kw>
+<arg>${id}</arg>
+<status status="PASS" start="2025-08-04T20:55:39.052702" elapsed="0.070794"/>
+</kw>
+<status status="PASS" start="2025-08-04T20:55:38.167972" elapsed="0.956691"/>
+</test>
+<status status="PASS" start="2025-08-04T20:55:38.153599" elapsed="0.973855"/>
+</suite>
+<suite id="s1-s3" name="Get Request" source="C:\Users\Lenovo\PycharmProjects\Automation-office\API_Automation\Get_Request.robot">
+<test id="s1-s3-t1" name="Gets the student details" line="7">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-08-04T20:55:39.147806" level="INFO">Creating Session using : alias=SN_get_student_details, url=https://thetestingworldapi.com/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>SN_get_student_details</arg>
+<arg>${Base_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-08-04T20:55:39.146788" elapsed="0.001981"/>
+</kw>
+<kw name="Get Request" owner="RequestsLibrary">
+<msg time="2025-08-04T20:55:39.149856" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg time="2025-08-04T20:55:39.891134" level="INFO">GET Request : url=https://thetestingworldapi.com/api/studentsDetails 
+ path_url=/api/studentsDetails 
+ headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-08-04T20:55:39.891473" level="INFO">GET Response : url=https://thetestingworldapi.com/api/studentsDetails 
+ status=200, reason=OK 
+ headers={'Cache-Control': 'no-cache', 'Pragma': 'no-cache', 'Content-Type': 'application/json; charset=utf-8', 'Expires': '-1', 'Server': 'Microsoft-IIS/10.0', 'X-AspNet-Version': '4.0.30319', 'X-Powered-By': 'ASP.NET', 'X-Powered-By-Plesk': 'PleskWin', 'Date': 'Mon, 04 Aug 2025 15:25:38 GMT', 'Content-Length': '11909'} 
+ body=[{"id":10662778,"first_name":"Srinivas","middle_name":"Gupta","last_name":"Bandari","date_of_birth":"03-09-2025"},{"id":10662772,"first_name":"Sai","middle_name":"Krishna","last_name":"d","date_of_birth":"03-09-2000"},{"id":10662771,"first_name":"Srinivas","middle_name":"Gupta","last_name":"Bandari","date_of_birth":"03-09-2025"},{"id":10662770,"first_name":"Srinivas","middle_name":"Gupta","last_name":"Bandari","date_of_birth":"03-09-2024"},{"id":10662769,"first_name":"Srinivas","middle_name":"Gupta","last_name":"Bandari","date_of_birth":"03-09-2025"},{"id":10662768,"first_name":"Srinivas","middle_name":"Gupta","last_name":"Bandari","date_of_birth":"03-09-2025"},{"id":10662767,"first_name":"Srinivas","middle_name":"Gupta","last_name":"Bandari","date_of_birth":"03-09-2025"},{"id":10662766,"first_name":"Srinivas","middle_name":"Gupta","last_name":"Bandari","date_of_birth":"03-09-2025"},{"id":10662765,"first_name":"Srinivas","middle_name":"Gupta","last_name":"Bandari","date_of_birth":"03-09-2025"},{"id":10662764,"first_name":"Srinivas","middle_name":"Gupta","last_name":"Bandari","date_of_birth":"03-09-2025"},{"id":10662763,"first_name":"Toosvintee","middle_name":"Nandika","last_name":"Bissumroy","date_of_birth":"20/04/2000"},{"id":10662762,"first_name":"TestingWorld","middle_name":"MyTesting","last_name":"Biss","date_of_birth":"20/04/2000"},{"id":10662761,"first_name":"TestingWorld","middle_name":"MyTesting","last_name":"Engineer","date_of_birth":"20/04/2000"},{"id":10662760,"first_name":"Testing","middle_name":"Sample","last_name":"World","date_of_birth":"12/11/2000"},{"id":10662759,"first_name":"Testing","middle_name":"Sample","last_name":"World","date_of_birth":"12/11/2000"},{"id":10662758,"first_name":"TestingWorld","middle_name":"MyTesting","last_name":"Engineer","date_of_birth":"20/04/2000"},{"id":10662757,"first_name":"Elcademy","middle_name":"MyTesting","last_name":"Hello World","date_of_birth":"20/04/2000"},{"id":10662756,"first_name":"Elcademy","middle_name":"MyTesting","last_name":"Hello World","date_of_birth":"20/04/2000"},{"id":10662755,"first_name":"TestingWorld","middle_name":"MyTesting","last_name":"Engineer","date_of_birth":"20/04/2000"},{"id":10662754,"first_name":"TestingWorld","middle_name":"MyTesting","last_name":"Engineer","date_of_birth":"20/04/2000"},{"id":10662753,"first_name":"TestingWorld","middle_name":"MyTesting","last_name":"Engineer","date_of_birth":"20/04/2000"},{"id":10662752,"first_name":"TestingWorld","middle_name":"MyTesting","last_name":"Engineer","date_of_birth":"20/04/2000"},{"id":10662751,"first_name":"TestingWorld","middle_name":"MyTesting","last_name":"Engineer","date_of_birth":"20/04/2000"},{"id":10662750,"first_name":"TestingWorld","middle_name":"MyTesting","last_name":"Engineer","date_of_birth":"20/04/2000"},{"id":10662749,"first_name":"TestingWorld","middle_name":"MyTesting","last_name":"Engineer","date_of_birth":"20/04/2000"},{"id":10662748,"first_name":"TestingWorld","middle_name":"MyTesting","last_name":"Engineer","date_of_birth":"20/04/2000"},{"id":10662747,"first_name":"TestingWorld","middle_name":"MyTesting","last_name":"Engineer","date_of_birth":"20/04/2000"},{"id":10662746,"first_name":"TestingWorld","middle_name":"QA","last_name":"Engineer","date_of_birth":"20/04/2000"},{"id":10662745,"first_name":"Elcademy","middle_name":"QA","last_name":"Engineer","date_of_birth":"20/04/2000"},{"id":10662744,"first_name":"Toosvintee","middle_name":"Nandi","last_name":"Bissumroy","date_of_birth":"20/04/2000"},{"id":10662743,"first_name":"Toosvintee","middle_name":"Nandi","last_name":"Bissumroy","date_of_birth":"20/04/2000"},{"id":10662742,"first_name":"Toosvintee","middle_name":"Nandi","last_name":"Bissumroy","date_of_birth":"20/04/2000"},{"id":10662741,"first_name":"Toosvintee","middle_name":"Nandika","last_name":"Bissumroy","date_of_birth":"20/04/2000"},{"id":10662740,"first_name":"Toosvintee","middle_name":"Nandika","last_name":"Bissumroy","date_of_birth":"20/04/2000"},{"id":10662739,"first_name":"Toosvintee","middle_name":"Nandika","last_name":"Bissumroy","date_of_birth":"20/04/2000"},{"id":10662738,"first_name":"Toosvintee","middle_name":"Nandika","last_name":"Bissumroy","date_of_birth":"20/04/2000"},{"id":10662737,"first_name":"Toosvintee","middle_name":"Nandi","last_name":"Bissumroy","date_of_birth":"20/04/2000"},{"id":10662736,"first_name":"Toosvintee","middle_name":"Nandika","last_name":"Bissumroy","date_of_birth":"20/04/2000"},{"id":10662735,"first_name":"sample string 2","middle_name":"sample string 3","last_name":"sample string 4","date_of_birth":"sample string 5"},{"id":10662734,"first_name":"Toosvintee","middle_name":"Nandi","last_name":"Bissumroy","date_of_birth":"20/04/2000"},{"id":10662733,"first_name":"sample string 2","middle_name":null,"last_name":null,"date_of_birth":"sample string 5"},{"id":10662732,"first_name":"sample string 2","middle_name":null,"last_name":null,"date_of_birth":"sample string 5"},{"id":10662731,"first_name":"Testing","middle_name":"Sample","last_name":"World","date_of_birth":"12/11/2000"},{"id":10662730,"first_name":"Testing 2","middle_name":"sample string 3","last_name":"sample string 4","date_of_birth":"sample string 5"},{"id":10662729,"first_name":"Yusha","middle_name":"Mahmud","last_name":"Khan","date_of_birth":"01/01/2001"},{"id":10662728,"first_name":"Yusha","middle_name":"Mahmud","last_name":"Khan","date_of_birth":"01/01/2001"},{"id":10662727,"first_name":"Yusha","middle_name":"Maham","last_name":"Khaaaa","date_of_birth":"01/05/1456"},{"id":10662725,"first_name":"Yusha","middle_name":"Mahmud","last_name":"Khan","date_of_birth":"01/01/1995"},{"id":10662723,"first_name":"sample string 2","middle_name":"sample string 3","last_name":"sample string 4","date_of_birth":"sample string 5"},{"id":10662722,"first_name":"sample string 2","middle_name":"sample string 3","last_name":"sample string 4","date_of_birth":"sample string 5"},{"id":10662721,"first_name":"sample string 2","middle_name":"sample string 3","last_name":"sample string 4","date_of_birth":"sample string 5"},{"id":10662720,"first_name":"sample string 2","middle_name":"sample string 3","last_name":"sample string 4","date_of_birth":"sample string 5"},{"id":10662718,"first_name":"Testing 2","middle_name":"sample string 3","last_name":"sample string 4","date_of_birth":"sample string 5"},{"id":10662717,"first_name":"Testing 2","middle_name":"sample string 3","last_name":"ramm","date_of_birth":"sample string 5"},{"id":10662714,"first_name":"Maiya","middle_name":"Quitzon","last_name":"McGlynn","date_of_birth":"8/2/2025"},{"id":10662713,"first_name":"Lillie","middle_name":"Pouros","last_name":"Waelchi","date_of_birth":"Wed Jun 18 2025 03:05:32 GMT+0600 (Bangladesh Standard Time)"},{"id":10662712,"first_name":"Gregoria","middle_name":"Tromp","last_name":"Orn","date_of_birth":"Fri Sep 27 2024 19:53:05 GMT+0600 (Bangladesh Standard Time)"},{"id":10662711,"first_name":null,"middle_name":"Brekke","last_name":"Runte","date_of_birth":"Tue May 27 2025 05:14:01 GMT+0600 (Bangladesh Standard Time)"},{"id":10662710,"first_name":"August","middle_name":"Satterfield","last_name":"Gulgowski","date_of_birth":"Fri Jun 20 2025 12:09:15 GMT+0600 (Bangladesh Standard Time)"},{"id":10662709,"first_name":"Savannah","middle_name":"Dickinson","last_name":"Hahn","date_of_birth":"Wed Jun 25 2025 23:11:06 GMT+0600 (Bangladesh Standard Time)"},{"id":10662706,"first_name":"John","middle_name":"Philips","last_name":"Doe","date_of_birth":"10/02/2012"},{"id":10662705,"first_name":"sample string 2","middle_name":"sample string 3","last_name":"sample string 4","date_of_birth":"sample string 5"},{"id":10662704,"first_name":"Testing 2","middle_name":"sample string 3","last_name":"sample string 4","date_of_birth":"sample string 5"},{"id":10662703,"first_name":"Check1","middle_name":"Check2","last_name":"GlobalVariable","date_of_birth":"12/12/1987"},{"id":10662702,"first_name":"sample string 2","middle_name":"sample string 3","last_name":"sample string 4","date_of_birth":"sample string 5"},{"id":10662701,"first_name":"sample string 2","middle_name":"sample string 3","last_name":"sample string 4","date_of_birth":"sample string 5"},{"id":10662700,"first_name":"Testing 2","middle_name":"sample string 3","last_name":"sample string 4","date_of_birth":"sample string 5"},{"id":10662699,"first_name":null,"middle_name":null,"last_name":null,"date_of_birth":null},{"id":10662698,"first_name":"sample string 2","middle_name":"sample string 3","last_name":"sample string 4","date_of_birth":"sample string 5"},{"id":10662697,"first_name":"Lehlohonolo","middle_name":"Matloy","last_name":"Elias","date_of_birth":"1996-06-20"},{"id":10662696,"first_name":"Testing","middle_name":"Name","last_name":"Matloy","date_of_birth":"20/02/1998"},{"id":10662695,"first_name":"Testing","middle_name":"Demo","last_name":"World","date_of_birth":"12/12/2000"},{"id":10662694,"first_name":null,"middle_name":null,"last_name":null,"date_of_birth":null},{"id":10662693,"first_name":null,"middle_name":null,"last_name":null,"date_of_birth":null},{"id":10662692,"first_name":null,"middle_name":null,"last_name":null,"date_of_birth":null},{"id":10662691,"first_name":"John","middle_name":"S","last_name":"Snow","date_of_birth":"01/01/1980"},{"id":10662690,"first_name":"John","middle_name":"S","last_name":"Snow","date_of_birth":"01/01/1980"},{"id":10662689,"first_name":"John","middle_name":"S","last_name":"Snow","date_of_birth":"01/01/1980"},{"id":10662688,"first_name":"John","middle_name":"S","last_name":"Snow","date_of_birth":"01/01/1980"},{"id":10662687,"first_name":"John","middle_name":"S","last_name":"Snow","date_of_birth":"01/01/1980"},{"id":10662686,"first_name":null,"middle_name":null,"last_name":null,"date_of_birth":null},{"id":10662685,"first_name":"Testing 2","middle_name":"sample string 3","last_name":"sample string 4","date_of_birth":"sample string 5"},{"id":10662683,"first_name":"Testing","middle_name":"Name","last_name":"Matloy","date_of_birth":"20/02/1998"... (set the log level to DEBUG or TRACE to see the full content) 
+ </msg>
+<msg time="2025-08-04T20:55:39.892207" level="INFO">C:\Users\Lenovo\PycharmProjects\Automation-office\.venv\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'thetestingworldapi.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-08-04T20:55:39.893397" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>SN_get_student_details</arg>
+<arg>api/studentsDetails</arg>
+<doc>*DEPRECATED* Please use `GET On Session` instead.</doc>
+<status status="PASS" start="2025-08-04T20:55:39.149720" elapsed="0.743893"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-08-04T20:55:39.894558" elapsed="0.002074"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${response.text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-08-04T20:55:39.897533" elapsed="0.018670"/>
+</kw>
+<status status="PASS" start="2025-08-04T20:55:39.144807" elapsed="0.772727"/>
+</test>
+<status status="PASS" start="2025-08-04T20:55:39.131450" elapsed="0.788662"/>
+</suite>
+<suite id="s1-s4" name="Parameterized APi" source="C:\Users\Lenovo\PycharmProjects\Automation-office\API_Automation\Parameterized_APi.robot">
+<test id="s1-s4-t1" name="Verifying the first_name using parameterized api" line="11">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-08-04T20:55:39.952977" level="INFO">Creating Session using : alias=parameterized_api_session, url=https://reqres.in/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>parameterized_api_session</arg>
+<arg>${url}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-08-04T20:55:39.951939" elapsed="0.001913"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-04T20:55:39.956555" level="INFO">&amp;{param} = { page=2 }</msg>
+<var>&amp;{param}</var>
+<arg>page=2</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-04T20:55:39.954975" elapsed="0.001782"/>
+</kw>
+<kw name="Get Request" owner="RequestsLibrary">
+<msg time="2025-08-04T20:55:39.958019" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg time="2025-08-04T20:55:44.011433" level="INFO">GET Request : url=https://reqres.in/api/users?page=2 
+ path_url=/api/users?page=2 
+ headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-08-04T20:55:44.011889" level="INFO">GET Response : url=https://reqres.in/api/users?page=2 
+ status=200, reason=OK 
+ headers={'Date': 'Mon, 04 Aug 2025 15:25:41 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Content-Encoding': 'gzip', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"440-ZjsmMKR8P3usr2uJZbOCGCxC3Uw"', 'Nel': '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}', 'Ratelimit-Limit': '100', 'Ratelimit-Policy': '100;w=60', 'Ratelimit-Remaining': '98', 'Ratelimit-Reset': '60', 'Referrer-Policy': 'strict-origin-when-cross-origin', 'Report-To': '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=SbuOTzBRVD42zmeeDp23zxSyfREeg8IBdrJHGT%2Bd25Y%3D\\u0026sid=c4c9725f-1ab0-44d8-820f-430df2718e11\\u0026ts=1754315097"}],"max_age":3600}', 'Reporting-Endpoints': 'heroku-nel="https://nel.heroku.com/reports?s=SbuOTzBRVD42zmeeDp23zxSyfREeg8IBdrJHGT%2Bd25Y%3D&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;ts=1754315097"', 'Via': '1.1 heroku-router', 'X-Content-Type-Options': 'nosniff', 'X-Frame-Options': 'DENY', 'X-Request-Id': '9a4defa2-2f07-15ee-61e9-13b2a19467ef', 'X-Xss-Protection': '1; mode=block', 'Age': '6044', 'Cache-Control': 'max-age=14400', 'cf-cache-status': 'HIT', 'Vary': 'Accept-Encoding', 'Server': 'cloudflare', 'CF-RAY': '969f119d4fc49c68-SIN', 'server-timing': 'cfL4;desc="?proto=TCP&amp;rtt=359890&amp;min_rtt=342997&amp;rtt_var=111623&amp;sent=5&amp;recv=7&amp;lost=0&amp;retrans=0&amp;sent_bytes=2832&amp;recv_bytes=775&amp;delivery_rate=11211&amp;cwnd=253&amp;unsent_bytes=0&amp;cid=651631c677f6ffc1&amp;ts=403&amp;x=0"'} 
+ body={"page":2,"per_page":6,"total":12,"total_pages":2,"data":[{"id":7,"email":"michael.lawson@reqres.in","first_name":"Michael","last_name":"Lawson","avatar":"https://reqres.in/img/faces/7-image.jpg"},{"id":8,"email":"lindsay.ferguson@reqres.in","first_name":"Lindsay","last_name":"Ferguson","avatar":"https://reqres.in/img/faces/8-image.jpg"},{"id":9,"email":"tobias.funke@reqres.in","first_name":"Tobias","last_name":"Funke","avatar":"https://reqres.in/img/faces/9-image.jpg"},{"id":10,"email":"byron.fields@reqres.in","first_name":"Byron","last_name":"Fields","avatar":"https://reqres.in/img/faces/10-image.jpg"},{"id":11,"email":"george.edwards@reqres.in","first_name":"George","last_name":"Edwards","avatar":"https://reqres.in/img/faces/11-image.jpg"},{"id":12,"email":"rachel.howell@reqres.in","first_name":"Rachel","last_name":"Howell","avatar":"https://reqres.in/img/faces/12-image.jpg"}],"support":{"url":"https://contentcaddy.io?utm_source=reqres&amp;utm_medium=json&amp;utm_campaign=referral","text":"Tired of writing endless social media content? Let Content Caddy generate it for you."}} 
+ </msg>
+<msg time="2025-08-04T20:55:44.012231" level="INFO">C:\Users\Lenovo\PycharmProjects\Automation-office\.venv\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-08-04T20:55:44.013417" level="INFO">${res} = &lt;Response [200]&gt;</msg>
+<var>${res}</var>
+<arg>parameterized_api_session</arg>
+<arg>/api/users</arg>
+<arg>params=${param}</arg>
+<doc>*DEPRECATED* Please use `GET On Session` instead.</doc>
+<status status="PASS" start="2025-08-04T20:55:39.957855" elapsed="4.055725"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${res}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-08-04T20:55:44.014878" elapsed="0.001312"/>
+</kw>
+<kw name="Convert To String" owner="BuiltIn">
+<msg time="2025-08-04T20:55:44.020365" level="INFO">${Conv_str} = 200</msg>
+<var>${Conv_str}</var>
+<arg>${res.status_code}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<status status="PASS" start="2025-08-04T20:55:44.017415" elapsed="0.003086"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${Conv_str}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-08-04T20:55:44.021397" elapsed="0.001239"/>
+</kw>
+<kw name="To Json" owner="RequestsLibrary">
+<msg time="2025-08-04T20:55:44.024398" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg time="2025-08-04T20:55:44.028268" level="INFO">To JSON using : content={"page":2,"per_page":6,"total":12,"total_pages":2,"data":[{"id":7,"email":"michael.lawson@reqres.in","first_name":"Michael","last_name":"Lawson","avatar":"https://reqres.in/img/faces/7-image.jpg"},{"id":8,"email":"lindsay.ferguson@reqres.in","first_name":"Lindsay","last_name":"Ferguson","avatar":"https://reqres.in/img/faces/8-image.jpg"},{"id":9,"email":"tobias.funke@reqres.in","first_name":"Tobias","last_name":"Funke","avatar":"https://reqres.in/img/faces/9-image.jpg"},{"id":10,"email":"byron.fields@reqres.in","first_name":"Byron","last_name":"Fields","avatar":"https://reqres.in/img/faces/10-image.jpg"},{"id":11,"email":"george.edwards@reqres.in","first_name":"George","last_name":"Edwards","avatar":"https://reqres.in/img/faces/11-image.jpg"},{"id":12,"email":"rachel.howell@reqres.in","first_name":"Rachel","last_name":"Howell","avatar":"https://reqres.in/img/faces/12-image.jpg"}],"support":{"url":"https://contentcaddy.io?utm_source=reqres&amp;utm_medium=json&amp;utm_campaign=referral","text":"Tired of writing endless social media content? Let Content Caddy generate it for you."}} </msg>
+<msg time="2025-08-04T20:55:44.029008" level="INFO">To JSON using : pretty_print=False </msg>
+<msg time="2025-08-04T20:55:44.029711" level="INFO">${res_json} = {'page': 2, 'per_page': 6, 'total': 12, 'total_pages': 2, 'data': [{'id': 7, 'email': 'michael.lawson@reqres.in', 'first_name': 'Michael', 'last_name': 'Lawson', 'avatar': 'https://reqres.in/img/faces...</msg>
+<var>${res_json}</var>
+<arg>${res.content}</arg>
+<doc>*DEPRECATED* Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</doc>
+<status status="PASS" start="2025-08-04T20:55:44.024232" elapsed="0.005681"/>
+</kw>
+<kw name="Get Value From Json" owner="JSONLibrary">
+<msg time="2025-08-04T20:55:44.172327" level="INFO">@{name_list} = [ Michael ]</msg>
+<var>@{name_list}</var>
+<arg>${res_json}</arg>
+<arg>data[0].first_name</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<status status="PASS" start="2025-08-04T20:55:44.031524" elapsed="0.140951"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<msg time="2025-08-04T20:55:44.174163" level="INFO">${firstname} = Michael</msg>
+<var>${firstname}</var>
+<arg>${name_list}</arg>
+<arg>0</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2025-08-04T20:55:44.173415" elapsed="0.000866"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${firstname}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-08-04T20:55:44.174938" elapsed="0.000766"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${firstname}</arg>
+<arg>Michael</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-08-04T20:55:44.176373" elapsed="0.000630"/>
+</kw>
+<status status="PASS" start="2025-08-04T20:55:39.946219" elapsed="4.231404"/>
+</test>
+<test id="s1-s4-t2" name="Verify the avator value" line="25">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-08-04T20:55:44.181048" level="INFO">Creating Session using : alias=parameterized_api_session, url=https://reqres.in/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>parameterized_api_session</arg>
+<arg>${url}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-08-04T20:55:44.180492" elapsed="0.001103"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-04T20:55:44.183155" level="INFO">&amp;{param} = { page=2 }</msg>
+<var>&amp;{param}</var>
+<arg>page=2</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-04T20:55:44.182369" elapsed="0.000905"/>
+</kw>
+<kw name="Get Request" owner="RequestsLibrary">
+<msg time="2025-08-04T20:55:44.184102" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg time="2025-08-04T20:55:53.821004" level="INFO">GET Request : url=https://reqres.in/api/users?page=2 
+ path_url=/api/users?page=2 
+ headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-08-04T20:55:53.821534" level="INFO">GET Response : url=https://reqres.in/api/users?page=2 
+ status=200, reason=OK 
+ headers={'Date': 'Mon, 04 Aug 2025 15:25:53 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Content-Encoding': 'gzip', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"440-ZjsmMKR8P3usr2uJZbOCGCxC3Uw"', 'Nel': '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}', 'Ratelimit-Limit': '100', 'Ratelimit-Policy': '100;w=60', 'Ratelimit-Remaining': '98', 'Ratelimit-Reset': '60', 'Referrer-Policy': 'strict-origin-when-cross-origin', 'Report-To': '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=SbuOTzBRVD42zmeeDp23zxSyfREeg8IBdrJHGT%2Bd25Y%3D\\u0026sid=c4c9725f-1ab0-44d8-820f-430df2718e11\\u0026ts=1754315097"}],"max_age":3600}', 'Reporting-Endpoints': 'heroku-nel="https://nel.heroku.com/reports?s=SbuOTzBRVD42zmeeDp23zxSyfREeg8IBdrJHGT%2Bd25Y%3D&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;ts=1754315097"', 'Via': '1.1 heroku-router', 'X-Content-Type-Options': 'nosniff', 'X-Frame-Options': 'DENY', 'X-Request-Id': '9a4defa2-2f07-15ee-61e9-13b2a19467ef', 'X-Xss-Protection': '1; mode=block', 'Age': '6056', 'Cache-Control': 'max-age=14400', 'cf-cache-status': 'HIT', 'Vary': 'Accept-Encoding', 'Server': 'cloudflare', 'CF-RAY': '969f11e9ba2ffe13-SIN', 'server-timing': 'cfL4;desc="?proto=TCP&amp;rtt=319887&amp;min_rtt=319887&amp;rtt_var=159943&amp;sent=13&amp;recv=10&amp;lost=0&amp;retrans=6&amp;sent_bytes=8228&amp;recv_bytes=775&amp;delivery_rate=165&amp;cwnd=251&amp;unsent_bytes=0&amp;cid=467ec905ddeda8c1&amp;ts=8493&amp;x=0"'} 
+ body={"page":2,"per_page":6,"total":12,"total_pages":2,"data":[{"id":7,"email":"michael.lawson@reqres.in","first_name":"Michael","last_name":"Lawson","avatar":"https://reqres.in/img/faces/7-image.jpg"},{"id":8,"email":"lindsay.ferguson@reqres.in","first_name":"Lindsay","last_name":"Ferguson","avatar":"https://reqres.in/img/faces/8-image.jpg"},{"id":9,"email":"tobias.funke@reqres.in","first_name":"Tobias","last_name":"Funke","avatar":"https://reqres.in/img/faces/9-image.jpg"},{"id":10,"email":"byron.fields@reqres.in","first_name":"Byron","last_name":"Fields","avatar":"https://reqres.in/img/faces/10-image.jpg"},{"id":11,"email":"george.edwards@reqres.in","first_name":"George","last_name":"Edwards","avatar":"https://reqres.in/img/faces/11-image.jpg"},{"id":12,"email":"rachel.howell@reqres.in","first_name":"Rachel","last_name":"Howell","avatar":"https://reqres.in/img/faces/12-image.jpg"}],"support":{"url":"https://contentcaddy.io?utm_source=reqres&amp;utm_medium=json&amp;utm_campaign=referral","text":"Tired of writing endless social media content? Let Content Caddy generate it for you."}} 
+ </msg>
+<msg time="2025-08-04T20:55:53.822021" level="INFO">C:\Users\Lenovo\PycharmProjects\Automation-office\.venv\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-08-04T20:55:53.823599" level="INFO">${res} = &lt;Response [200]&gt;</msg>
+<var>${res}</var>
+<arg>parameterized_api_session</arg>
+<arg>/api/users</arg>
+<arg>params=${param}</arg>
+<doc>*DEPRECATED* Please use `GET On Session` instead.</doc>
+<status status="PASS" start="2025-08-04T20:55:44.184000" elapsed="9.639799"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${res}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-08-04T20:55:53.824890" elapsed="0.001262"/>
+</kw>
+<kw name="Convert To String" owner="BuiltIn">
+<msg time="2025-08-04T20:55:53.830021" level="INFO">${Conv_str} = 200</msg>
+<var>${Conv_str}</var>
+<arg>${res.status_code}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<status status="PASS" start="2025-08-04T20:55:53.827166" elapsed="0.003031"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${Conv_str}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-08-04T20:55:53.831055" elapsed="0.001060"/>
+</kw>
+<kw name="To Json" owner="RequestsLibrary">
+<msg time="2025-08-04T20:55:53.833368" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg time="2025-08-04T20:55:53.837813" level="INFO">To JSON using : content={"page":2,"per_page":6,"total":12,"total_pages":2,"data":[{"id":7,"email":"michael.lawson@reqres.in","first_name":"Michael","last_name":"Lawson","avatar":"https://reqres.in/img/faces/7-image.jpg"},{"id":8,"email":"lindsay.ferguson@reqres.in","first_name":"Lindsay","last_name":"Ferguson","avatar":"https://reqres.in/img/faces/8-image.jpg"},{"id":9,"email":"tobias.funke@reqres.in","first_name":"Tobias","last_name":"Funke","avatar":"https://reqres.in/img/faces/9-image.jpg"},{"id":10,"email":"byron.fields@reqres.in","first_name":"Byron","last_name":"Fields","avatar":"https://reqres.in/img/faces/10-image.jpg"},{"id":11,"email":"george.edwards@reqres.in","first_name":"George","last_name":"Edwards","avatar":"https://reqres.in/img/faces/11-image.jpg"},{"id":12,"email":"rachel.howell@reqres.in","first_name":"Rachel","last_name":"Howell","avatar":"https://reqres.in/img/faces/12-image.jpg"}],"support":{"url":"https://contentcaddy.io?utm_source=reqres&amp;utm_medium=json&amp;utm_campaign=referral","text":"Tired of writing endless social media content? Let Content Caddy generate it for you."}} </msg>
+<msg time="2025-08-04T20:55:53.838188" level="INFO">To JSON using : pretty_print=False </msg>
+<msg time="2025-08-04T20:55:53.838863" level="INFO">${res_json} = {'page': 2, 'per_page': 6, 'total': 12, 'total_pages': 2, 'data': [{'id': 7, 'email': 'michael.lawson@reqres.in', 'first_name': 'Michael', 'last_name': 'Lawson', 'avatar': 'https://reqres.in/img/faces...</msg>
+<var>${res_json}</var>
+<arg>${res.content}</arg>
+<doc>*DEPRECATED* Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</doc>
+<status status="PASS" start="2025-08-04T20:55:53.833200" elapsed="0.005809"/>
+</kw>
+<kw name="Get Value From Json" owner="JSONLibrary">
+<msg time="2025-08-04T20:55:53.990077" level="INFO">@{list} = [ https://reqres.in/img/faces/7-image.jpg ]</msg>
+<var>@{list}</var>
+<arg>${res_json}</arg>
+<arg>data[0].avatar</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<status status="PASS" start="2025-08-04T20:55:53.839958" elapsed="0.150283"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<msg time="2025-08-04T20:55:53.992629" level="INFO">${avatar} = https://reqres.in/img/faces/7-image.jpg</msg>
+<var>${avatar}</var>
+<arg>${list}</arg>
+<arg>0</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2025-08-04T20:55:53.991475" elapsed="0.001357"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${avatar}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-08-04T20:55:53.993834" elapsed="0.001281"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${avatar}</arg>
+<arg>https://reqres.in/img/faces/7-image.jpg</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-08-04T20:55:53.996336" elapsed="0.003566"/>
+</kw>
+<status status="PASS" start="2025-08-04T20:55:44.179118" elapsed="9.822574"/>
+</test>
+<status status="PASS" start="2025-08-04T20:55:39.924558" elapsed="14.080778"/>
+</suite>
+<suite id="s1-s5" name="Post Request" source="C:\Users\Lenovo\PycharmProjects\Automation-office\API_Automation\Post_Request.robot">
+<test id="s1-s5-t1" name="Post Request API TestCase" line="10">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-08-04T20:55:54.038231" level="INFO">Creating Session using : alias=post_session, url=https://thetestingworldapi.com/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>post_session</arg>
+<arg>${Base_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-08-04T20:55:54.037648" elapsed="0.001144"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-04T20:55:54.040628" level="INFO">${Data} = {'first_name': 'Srinivas', 'middle_name': 'Gupta', 'last_name': 'Bandari', 'date_of_birth': '03-09-2025'}</msg>
+<var>${Data}</var>
+<arg>first_name=Srinivas</arg>
+<arg>middle_name=Gupta</arg>
+<arg>last_name=Bandari</arg>
+<arg>date_of_birth=03-09-2025</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-04T20:55:54.039655" elapsed="0.001101"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-04T20:55:54.042409" level="INFO">${Header} = {'Content-Type': 'application/json'}</msg>
+<var>${Header}</var>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-04T20:55:54.041660" elapsed="0.000879"/>
+</kw>
+<kw name="Post Request" owner="RequestsLibrary">
+<msg time="2025-08-04T20:55:54.043453" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<msg time="2025-08-04T20:55:55.178459" level="INFO">POST Request : url=https://thetestingworldapi.com/api/studentsDetails 
+ path_url=/api/studentsDetails 
+ headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '105'} 
+ body={"first_name": "Srinivas", "middle_name": "Gupta", "last_name": "Bandari", "date_of_birth": "03-09-2025"} 
+ </msg>
+<msg time="2025-08-04T20:55:55.178863" level="INFO">POST Response : url=https://thetestingworldapi.com/api/studentsDetails 
+ status=201, reason=Created 
+ headers={'Cache-Control': 'no-cache', 'Pragma': 'no-cache', 'Content-Type': 'application/json; charset=utf-8', 'Expires': '-1', 'Location': 'https://thetestingworldapi.com/api/studentsDetails/10662780', 'Server': 'Microsoft-IIS/10.0', 'X-AspNet-Version': '4.0.30319', 'X-Powered-By': 'ASP.NET', 'X-Powered-By-Plesk': 'PleskWin', 'Date': 'Mon, 04 Aug 2025 15:25:54 GMT', 'Content-Length': '112'} 
+ body={"id":10662780,"first_name":"Srinivas","middle_name":"Gupta","last_name":"Bandari","date_of_birth":"03-09-2025"} 
+ </msg>
+<msg time="2025-08-04T20:55:55.179202" level="INFO">C:\Users\Lenovo\PycharmProjects\Automation-office\.venv\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'thetestingworldapi.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-08-04T20:55:55.180210" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<var>${response}</var>
+<arg>post_session</arg>
+<arg>api/studentsDetails</arg>
+<arg>data=${Data}</arg>
+<arg>headers=${Header}</arg>
+<doc>*DEPRECATED* Please use `POST On Session` instead.</doc>
+<status status="PASS" start="2025-08-04T20:55:54.043339" elapsed="1.137022"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-08-04T20:55:55.181285" elapsed="0.001885"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-08-04T20:55:55.184109" elapsed="0.002600"/>
+</kw>
+<kw name="Convert To String" owner="BuiltIn">
+<msg time="2025-08-04T20:55:55.190295" level="INFO">${satus_code} = 201</msg>
+<var>${satus_code}</var>
+<arg>${response.status_code}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<status status="PASS" start="2025-08-04T20:55:55.187706" elapsed="0.002786"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${satus_code}</arg>
+<arg>201</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-08-04T20:55:55.191528" elapsed="0.001061"/>
+</kw>
+<kw name="To Json" owner="RequestsLibrary">
+<msg time="2025-08-04T20:55:55.193729" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg time="2025-08-04T20:55:55.198103" level="INFO">To JSON using : content={"id":10662780,"first_name":"Srinivas","middle_name":"Gupta","last_name":"Bandari","date_of_birth":"03-09-2025"} </msg>
+<msg time="2025-08-04T20:55:55.198268" level="INFO">To JSON using : pretty_print=False </msg>
+<msg time="2025-08-04T20:55:55.199215" level="INFO">${json_response_conv} = {'id': 10662780, 'first_name': 'Srinivas', 'middle_name': 'Gupta', 'last_name': 'Bandari', 'date_of_birth': '03-09-2025'}</msg>
+<var>${json_response_conv}</var>
+<arg>${response.content}</arg>
+<doc>*DEPRECATED* Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</doc>
+<status status="PASS" start="2025-08-04T20:55:55.193584" elapsed="0.006041"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${json_response_conv}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-08-04T20:55:55.200793" elapsed="0.001484"/>
+</kw>
+<kw name="Get Value From Json" owner="JSONLibrary">
+<msg time="2025-08-04T20:55:55.374971" level="INFO">@{middel_name} = [ Gupta ]</msg>
+<var>@{middel_name}</var>
+<arg>${json_response_conv}</arg>
+<arg>middle_name</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<status status="PASS" start="2025-08-04T20:55:55.203162" elapsed="0.172015"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<msg time="2025-08-04T20:55:55.376924" level="INFO">${list} = Gupta</msg>
+<var>${list}</var>
+<arg>${middel_name}</arg>
+<arg>0</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2025-08-04T20:55:55.376249" elapsed="0.000779"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${list}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-08-04T20:55:55.377784" elapsed="0.000886"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${list}</arg>
+<arg>Gupta</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-08-04T20:55:55.379480" elapsed="0.000722"/>
+</kw>
+<status status="PASS" start="2025-08-04T20:55:54.035629" elapsed="1.345524"/>
+</test>
+<status status="PASS" start="2025-08-04T20:55:54.010259" elapsed="1.373211"/>
+</suite>
+<suite id="s1-s6" name="Put Request" source="C:\Users\Lenovo\PycharmProjects\Automation-office\API_Automation\Put_Request.robot">
+<test id="s1-s6-t1" name="Put Request API TestCase updating date of birth" line="11">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-08-04T20:55:55.407948" level="INFO">Creating Session using : alias=put_session, url=https://thetestingworldapi.com/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>put_session</arg>
+<arg>${Base_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-08-04T20:55:55.407120" elapsed="0.001602"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-04T20:55:55.411089" level="INFO">${Payload} = {'id': '10662770', 'first_name': 'Srinivas', 'middle_name': 'Gupta', 'last_name': 'Bandari', 'date_of_birth': '03-09-2024'}</msg>
+<var>${Payload}</var>
+<arg>id=10662770</arg>
+<arg>first_name=Srinivas</arg>
+<arg>middle_name=Gupta</arg>
+<arg>last_name=Bandari</arg>
+<arg>date_of_birth=03-09-2024</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-04T20:55:55.409798" elapsed="0.001486"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-04T20:55:55.413393" level="INFO">${header} = {'Content-Type': 'application/json'}</msg>
+<var>${header}</var>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-04T20:55:55.412415" elapsed="0.001150"/>
+</kw>
+<kw name="Put Request" owner="RequestsLibrary">
+<msg time="2025-08-04T20:55:55.414863" level="WARN">Keyword 'RequestsLibrary.Put Request' is deprecated. Please use `PUT On Session` instead.</msg>
+<msg time="2025-08-04T20:55:56.420391" level="INFO">PUT Request : url=https://thetestingworldapi.com/api/studentsDetails/10662770 
+ path_url=/api/studentsDetails/10662770 
+ headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '123'} 
+ body={"id": "10662770", "first_name": "Srinivas", "middle_name": "Gupta", "last_name": "Bandari", "date_of_birth": "03-09-2024"} 
+ </msg>
+<msg time="2025-08-04T20:55:56.420668" level="INFO">PUT Response : url=https://thetestingworldapi.com/api/studentsDetails/10662770 
+ status=200, reason=OK 
+ headers={'Cache-Control': 'no-cache', 'Pragma': 'no-cache', 'Content-Type': 'application/json; charset=utf-8', 'Expires': '-1', 'Server': 'Microsoft-IIS/10.0', 'X-AspNet-Version': '4.0.30319', 'X-Powered-By': 'ASP.NET', 'X-Powered-By-Plesk': 'PleskWin', 'Date': 'Mon, 04 Aug 2025 15:25:55 GMT', 'Content-Length': '46'} 
+ body={"status":"true","msg":"update  data success"} 
+ </msg>
+<msg time="2025-08-04T20:55:56.420877" level="INFO">C:\Users\Lenovo\PycharmProjects\Automation-office\.venv\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'thetestingworldapi.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-08-04T20:55:56.421859" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>put_session</arg>
+<arg>api/studentsDetails/${id}</arg>
+<arg>data=${Payload}</arg>
+<arg>headers=${header}</arg>
+<doc>*DEPRECATED* Please use `PUT On Session` instead.</doc>
+<status status="PASS" start="2025-08-04T20:55:55.414697" elapsed="1.007336"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-08-04T20:55:56.423018" elapsed="0.001888"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-08-04T20:55:56.425769" elapsed="0.002512"/>
+</kw>
+<kw name="Get Request" owner="RequestsLibrary">
+<msg time="2025-08-04T20:55:56.429295" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg time="2025-08-04T20:55:56.495318" level="INFO">GET Request : url=https://thetestingworldapi.com/api/studentsDetails/10662770 
+ path_url=/api/studentsDetails/10662770 
+ headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-08-04T20:55:56.495705" level="INFO">GET Response : url=https://thetestingworldapi.com/api/studentsDetails/10662770 
+ status=200, reason=OK 
+ headers={'Cache-Control': 'no-cache', 'Pragma': 'no-cache', 'Content-Type': 'application/json; charset=utf-8', 'Expires': '-1', 'Server': 'Microsoft-IIS/10.0', 'X-AspNet-Version': '4.0.30319', 'X-Powered-By': 'ASP.NET', 'X-Powered-By-Plesk': 'PleskWin', 'Date': 'Mon, 04 Aug 2025 15:25:55 GMT', 'Content-Length': '137'} 
+ body={"status":"true","data":{"id":10662770,"first_name":"Srinivas","middle_name":"Gupta","last_name":"Bandari","date_of_birth":"03-09-2024"}} 
+ </msg>
+<msg time="2025-08-04T20:55:56.496599" level="INFO">C:\Users\Lenovo\PycharmProjects\Automation-office\.venv\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'thetestingworldapi.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-08-04T20:55:56.498136" level="INFO">${10662770_data} = &lt;Response [200]&gt;</msg>
+<var>${10662770_data}</var>
+<arg>put_session</arg>
+<arg>api/studentsDetails/${id}</arg>
+<doc>*DEPRECATED* Please use `GET On Session` instead.</doc>
+<status status="PASS" start="2025-08-04T20:55:56.429182" elapsed="0.069159"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${10662770_data.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-08-04T20:55:56.499500" elapsed="0.003187"/>
+</kw>
+<status status="PASS" start="2025-08-04T20:55:55.403814" elapsed="1.099942"/>
+</test>
+<status status="PASS" start="2025-08-04T20:55:55.386786" elapsed="1.119451"/>
+</suite>
+<status status="PASS" start="2025-08-04T20:55:33.992292" elapsed="22.517830"/>
+</suite>
+<statistics>
+<total>
+<stat pass="7" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="API Automation" id="s1" pass="7" fail="0" skip="0">API Automation</stat>
+<stat name="API Validation" id="s1-s1" pass="1" fail="0" skip="0">API Automation.API Validation</stat>
+<stat name="deleterequest userdefinedKey" id="s1-s2" pass="1" fail="0" skip="0">API Automation.deleterequest userdefinedKey</stat>
+<stat name="Get Request" id="s1-s3" pass="1" fail="0" skip="0">API Automation.Get Request</stat>
+<stat name="Parameterized APi" id="s1-s4" pass="2" fail="0" skip="0">API Automation.Parameterized APi</stat>
+<stat name="Post Request" id="s1-s5" pass="1" fail="0" skip="0">API Automation.Post Request</stat>
+<stat name="Put Request" id="s1-s6" pass="1" fail="0" skip="0">API Automation.Put Request</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-08-04T20:55:37.053615" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg time="2025-08-04T20:55:37.837383" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg time="2025-08-04T20:55:38.177552" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<msg time="2025-08-04T20:55:38.841482" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg time="2025-08-04T20:55:39.053969" level="WARN">Keyword 'RequestsLibrary.Delete Request' is deprecated. Please use `DELETE On Session` instead.</msg>
+<msg time="2025-08-04T20:55:39.149856" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg time="2025-08-04T20:55:39.958019" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg time="2025-08-04T20:55:44.024398" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg time="2025-08-04T20:55:44.184102" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg time="2025-08-04T20:55:53.833368" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg time="2025-08-04T20:55:54.043453" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<msg time="2025-08-04T20:55:55.193729" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg time="2025-08-04T20:55:55.414863" level="WARN">Keyword 'RequestsLibrary.Put Request' is deprecated. Please use `PUT On Session` instead.</msg>
+<msg time="2025-08-04T20:55:56.429295" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+</errors>
+</robot>
