@@ -18,3 +18,14 @@ Switching to a frame on webpage and performing an action
     ${frame_title}=  get title
     log to console    ${frame_title}
     unselect frame
+
+Get the Iframe WebElements list
+    Browser Launch    ${URL}    ${Browser}
+    Wait Until Element Is Visible    css=a.close-modal
+    Click Element    css=a.close-modal
+    Sleep    5 seconds
+    ${frames}=    Get WebElements    //iframe
+    FOR    ${frame}    IN    @{frames}
+        ${name}=    Get Element Attribute    ${frame}    name
+        Log To Console    Frame Name: ${name}
+    END
